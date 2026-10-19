@@ -1,0 +1,39 @@
+# secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# dependencies
+/vendor/
+/node_modules/
+
+# user uploads (keep the folders and the php-blocking .htaccess)
+/uploads/*
+!/uploads/.htaccess
+!/uploads/*/
+/uploads/*/*
+!/uploads/*/.gitkeep
+
+# runtime
+/storage/logs/*
+!/storage/logs/.gitkeep
+*.log
+
+# tool caches
+.php-cs-fixer.cache
+.eslintcache
+
+# dumps and archives
+*.sql
+!/database/schema.sql
+*.zip
+*.bak
+
+# os and editors
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/

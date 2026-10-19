@@ -1,0 +1,19 @@
+Options -Indexes -ExecCGI
+
+<IfModule php_module>
+    php_flag engine off
+</IfModule>
+
+RemoveHandler .php .phtml .php3 .php4 .php5 .php7 .php8 .phar .pht .phps
+RemoveType .php .phtml .php3 .php4 .php5 .php7 .php8 .phar .pht .phps
+
+<FilesMatch "\.(?i:php\d?|phtml|phar|pht|phps|cgi|pl|py|sh|shtml|htaccess)$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "\.(?i:jpe?g|png|webp|gif)$">
+    <IfModule mod_headers.c>
+        Header set X-Content-Type-Options "nosniff"
+        Header set Content-Security-Policy "default-src 'none'"
+    </IfModule>
+</FilesMatch>
